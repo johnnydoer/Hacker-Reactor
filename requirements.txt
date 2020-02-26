@@ -6,7 +6,11 @@ Django==3.0.3
 idna==2.9
 pytz==2019.3
 requests==2.23.0
+<<<<<<< HEAD
 selenium==3.141.0
+=======
+setuptools==40.8.0
+>>>>>>> 1ed6c73209c61eeb8e7fcb7084491c876445f1e7
 six==1.14.0
 soupsieve==2.0
 sqlparse==0.3.0

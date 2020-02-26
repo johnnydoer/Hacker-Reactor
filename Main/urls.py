@@ -10,14 +10,21 @@
 
 
 from django.conf.urls import url
+<<<<<<< HEAD
 from django.urls import path, include
+=======
+from django.urls import path,include, re_path
+>>>>>>> 1ed6c73209c61eeb8e7fcb7084491c876445f1e7
 from . import views
+from django.conf import settings
+
 # import social_django
 app_name = "Main"
 
 urlpatterns = [
     path('', views.index, name='index'),
     path('login/', views.login_display, name='login'),
+
     path('register/', views.register_display, name='register'),
     path('logout/', views.logout_view, name='logout'),
     path('login/reset_password/', views.reset_password, name='reset'),
