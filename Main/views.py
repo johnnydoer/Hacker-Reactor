@@ -177,4 +177,4 @@ def activate(request, uidb64, token):
 
 
 def index(request):
-    return render(request, "Main/index.html")
+    return render(request, "Main/index.html", {'data':request.user.is_authenticated})

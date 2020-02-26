@@ -1,6 +1,13 @@
 <html>
     <body>
         Homepage
+        {% if data %}
+            <a href="{% url 'Main:logout' %}">Logout Here</a>
+        {% else %}
+            <a href="{% url 'Main:login' %}">Login Here</a>
+
+        {% endif %}
+
     </body>
 
 </html>

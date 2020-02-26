@@ -10,7 +10,7 @@
 
 
 from django.conf.urls import url
-from django.urls import path,include
+from django.urls import path, include
 from . import views
 # import social_django
 app_name = "Main"
