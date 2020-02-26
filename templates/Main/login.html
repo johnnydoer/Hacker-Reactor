@@ -34,7 +34,11 @@
                             {{ form.password }}{{ form.password.errors }}
                             <span class="focus-input100"></span>
                         </div>
-
+                        <div>
+                            <a class="btn btn-primary" href="{% url 'social:begin' 'google-oauth2' %}">
+                                Login via Google
+                            </a>
+                        </div>
                         <div class="text-right p-t-13 p-b-23">
                             <a href="reset_password/" class="txt2">
                                 Forgot Password?

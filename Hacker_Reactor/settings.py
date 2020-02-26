@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-]
+    'social_django',
 
-AUTH_USER_MODEL = 'Main.User'
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -69,6 +69,24 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTH_USER_MODEL = 'Main.User'
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+LOGIN_URL = '/login/google-oauth2/'
+
+LOGIN_REDIRECT_URL = 'Main:index'
+LOGOUT_REDIRECT_URL = 'Main:index'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '123977147483-g5envvddrsoso94m0m3kbq2ujetlcpld.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '9wIu2XVUSkHdm6Nb4GwZkZ1A'
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+
 
 WSGI_APPLICATION = 'Hacker_Reactor.wsgi.application'
 
@@ -131,3 +149,4 @@ EMAIL_HOST_USER = 'aseproject321@gmail.com'
 EMAIL_HOST_PASSWORD = 'ucandoit456'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
