@@ -1,0 +1,89 @@
+{% extends 'MainBase.html' %}
+{% load static %}
+
+
+
+{% block head %}
+    <title>SignUp</title>
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="{% static "registration/css/style.css" %}">
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="wrapper mt-5 pt-5">
+        <div class="inner">
+            <form class="form-style" method="POST">
+                {% csrf_token %}
+                <h3 class="heading">Signup</h3>
+                <div class="form-group">
+                    <div class="form-wrapper">
+                        <label>First Name :</label>
+                        {{ form.first_name }}
+                    </div>
+                    <div class="form-wrapper">
+                        <label>Last Name :</label>
+                        {{ form.last_name }}
+                    </div>
+                </div>
+                <div class="form-wrapper">
+                    <label for="">Username :</label>
+                    {{ form.username }}
+                    <p class="message" id='message'>{{ form.username.errors }}</p>
+                </div>
+                <div class="form-wrapper">
+                    <label>Email :</label>
+                    {{ form.email }}
+                    <p class="message" id='message'>{{ form.email.errors }}</p>
+                </div>
+                <div class="form-wrapper">
+                    <label for="">Date of Birth :</label>
+                    {{ form.birth_date }}
+                    <p class="message" id='message'>{{ form.birth_date.errors }}</p>
+                </div>
+                <div class="form-wrapper">
+                    <label>Password :</label>
+                    {{ form.password }}
+                </div>
+                <div class="form-wrapper">
+                    <label>Confirm Password :</label>
+                    {{ form.confirm_password }}
+                    <p class="message" id='message'>{{ form.confirm_password.errors }}</p>
+                </div>
+
+                <button>Signup</button>
+
+
+
+                <div class="row-3">
+                    <p>Alerady have an account ? <a style="color:blue;" href="{% url 'Main:login' %}">Login</a>
+                        instead</p>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+{% endblock %}
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $("#id_city").change(function () {
+        var url = $("#AddressForm").data("areas-url"); // get the url of the `load_cities` view
+        var cityId = $(this).val(); // get the selected country ID from the HTML input
+        $.ajax({ // initialize an AJAX request
+            url: url, // set the url of the request (= localhost:8080/hr/ajax/load-cities/)
+            data: {
+                'city': cityId // add the country id to the GET parameters
+            },
+            success: function (data) { // `data` is the return of the `load_cities` view function
+                $("#id_area").html(
+                    data
+                    ); // replace the contents of the city input with the data that came from the server
+            }
+        });
+    });
+</script>
